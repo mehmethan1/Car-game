@@ -217,6 +217,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -290,45 +291,29 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.015906187, y: -0.1087326, z: 0.004199684, w: 0.9939349}
-  m_LocalPosition: {x: 1.8540651, y: 2.2409444, z: -11.712725}
+  m_LocalRotation: {x: 0.22999914, y: -0.000000026312774, z: 0.000000006218632, w: 0.97319084}
+  m_LocalPosition: {x: 1.1300004, y: 2.2409444, z: -11.712723}
   m_LocalScale: {x: 0.994232, y: 1.0000126, z: 1.0066019}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1667735200}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: -12.475, y: 88.091, z: -89.307}
---- !u!1 &1020289232
-GameObject:
+  m_LocalEulerAnglesHint: {x: 1.864, y: -6.244, z: 0.28}
+--- !u!114 &963194229
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1020289233}
-  m_Layer: 0
-  m_Name: PivotCam
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1020289233
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1020289232}
-  m_LocalRotation: {x: 0.23911765, y: -0.3696438, z: 0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -3.55, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 30, y: -45, z: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 27991af401f383049b7725bfcdb704dc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  target: {fileID: 8624920195246111215}
+  smoothSpeed: 0.125
+  yOffset: 1.45
 --- !u!1 &1667735199
 GameObject:
   m_ObjectHideFlags: 0
@@ -339,7 +324,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1667735200}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: PivotCam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -360,7 +345,7 @@ Transform:
   - {fileID: 963194228}
   - {fileID: 8624920195246111215}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1745021814
 GameObject:
@@ -465,7 +450,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1793209988
 GameObject:
@@ -497,7 +482,7 @@ Transform:
   m_Children:
   - {fileID: 338143207}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2126466797
 GameObject:
@@ -591,7 +576,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -69.684, z: 0}
 --- !u!23 &1023184633451431411
 MeshRenderer:
@@ -992,8 +977,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4749757055427562492}
-  m_LocalRotation: {x: 0.50000006, y: -0.49999994, z: 0.5, w: 0.5}
-  m_LocalPosition: {x: -0.123, y: -1.07, z: -5.0992}
+  m_LocalRotation: {x: 0.5020674, y: -0.49792406, z: 0.49792412, w: 0.5020673}
+  m_LocalPosition: {x: 1.13, y: -1.07, z: -5.0992017}
   m_LocalScale: {x: 0.78638816, y: 0.90277004, z: 0.90277004}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1004,7 +989,7 @@ Transform:
   - {fileID: 2597358703941038543}
   m_Father: {fileID: 1667735200}
   m_RootOrder: -1
-  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 90}
+  m_LocalEulerAnglesHint: {x: 90, y: 0, z: 89.525}
 --- !u!114 &8624920195246111216
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1017,7 +1002,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 42deca909e839664cbdd7d86c9e35aac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerTransform: {fileID: 8624920195246111215}
+  minX: -0.31
+  maxX: 3.47
 --- !u!54 &8624920195246111217
 Rigidbody:
   m_ObjectHideFlags: 0
