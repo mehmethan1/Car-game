@@ -9,6 +9,7 @@ public class Police : MonoBehaviour
     void Update()
     {
         // z ekseninde düz hareket et
-        transform.Translate(Vector3.forward * -speed * Time.deltaTime);
+        transform.Translate(Vector3.left * -speed * Time.deltaTime);
+        this.transform.rotation = Quaternion.Euler(90f, 0f, -90f);
     }
 }

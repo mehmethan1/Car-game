@@ -5,7 +5,7 @@ using UnityEngine;
 public class ObstacleSpawner : MonoBehaviour
 {
     public GameObject objectToSpawn; // Oluşturulacak nesne
-    public float spawnInterval = 2f; // Oluşturma aralığı (saniye)
+    public float spawnInterval = 1f; // Oluşturma aralığı (saniye)
     public float minX = -5f; // Min oluşturma noktası
     public float maxX = 5f;  // Max oluşturma noktası
 
@@ -28,7 +28,7 @@ public class ObstacleSpawner : MonoBehaviour
         float randomX = Random.Range(minX, maxX);
 
         // Oluşturulacak nesneyi instantiate et ve rastgele konumunu belirle
-        Vector3 spawnPosition = new Vector3(randomX, transform.position.y, transform.position.z);
+        Vector3 spawnPosition = new Vector3(randomX, this.transform.position.y, this.transform.position.z);
         GameObject spawnedObject = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
 
         // Oluşturulan nesneyi bu script'e bağlı olan GameObject altında organize et
