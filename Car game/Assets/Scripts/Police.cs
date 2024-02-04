@@ -12,4 +12,5 @@ public class Police : MonoBehaviour
         transform.Translate(Vector3.left * -speed * Time.deltaTime);
         this.transform.rotation = Quaternion.Euler(90f, 0f, -90f);
     }
+
 }

@@ -9,11 +9,12 @@ public class Player : MonoBehaviour
     private Vector2 currentTouchPosition;
     private Vector2 dragDelta;
 
-    public GameObject OverPanel;
+    //public GameObject OverPanel;
 
     public float minX = -5f;
     public float maxX = 5f;
     public float dragSpeed = 0.02f; // Hareket hızını ayarlamak için eklenen değişken
+    public GameObject explosionPrefab; // Patlama efektini içeren prefab
 
     void Update()
     {
@@ -66,6 +67,4 @@ public class Player : MonoBehaviour
     {
         isDragging = false;
     }
-
-
 }

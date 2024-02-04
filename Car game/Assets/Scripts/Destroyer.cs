@@ -16,13 +16,17 @@ public class Destroyer : MonoBehaviour
         SetScore();
     }
 
-    private void OnTriggerEnter(Collider target)
+    private void OnTriggerEnter(Collider other)
     {
-        if (target.tag == "Obstacle")
+        if (other.CompareTag("Obstacle"))
         {
-            Destroy(target.gameObject);
-
+            Destroy(other.gameObject);
             AddScore();
+        }
+
+        if (other.CompareTag("Road"))
+        {
+            Destroy(other.gameObject);
         }
     }
 
@@ -40,8 +44,6 @@ public class Destroyer : MonoBehaviour
 
     void SetScore()
     {
-
         currentScoreText.text = currentScore.ToString();
-
     }
 }
