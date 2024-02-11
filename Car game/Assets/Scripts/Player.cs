@@ -14,7 +14,7 @@ public class Player : MonoBehaviour
     public float minX = -5f;
     public float maxX = 5f;
     public float dragSpeed = 0.02f; // Hareket hızını ayarlamak için eklenen değişken
-    public GameObject explosionPrefab; // Patlama efektini içeren prefab
+
 
     void Update()
     {
@@ -66,5 +66,10 @@ public class Player : MonoBehaviour
     void EndDrag()
     {
         isDragging = false;
+    }
+
+    public void EndGame()
+    {
+        dragSpeed = 0;
     }
 }

@@ -12,11 +12,8 @@ public class Road : MonoBehaviour
         transform.Translate(Vector3.forward * -speed * Time.deltaTime);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    public void Explode()
     {
-        if(collision.collider.tag == "Player")
-        {
-            Debug.Log("deneme");
-        }
+        speed = 0;
     }
 }

@@ -4,31 +4,32 @@ using UnityEngine;
 
 public class ObstacleSpawner : MonoBehaviour
 {
-    public GameObject objectToSpawn; // Oluşturulacak nesne
-    public float spawnInterval = 1f; // Oluşturma aralığı (saniye)
-    public float minX; // Min oluşturma noktası
-    public float maxX;  // Max oluşturma noktası
+    public GameObject[] gameObjects; // Game objelerinin listesi
 
-    private float elapsedTime = 0f;
+    public GameObject policeCarPrefab; // Polis arabası prefabı
 
-    void Update()
+    public float timer;
+
+    void Start()
     {
-        elapsedTime += Time.deltaTime;
-
-        if (elapsedTime >= spawnInterval)
-        {
-            SpawnObject();
-            elapsedTime = 0f;
-        }
+        StartCoroutine(SpawnPoliceCarRoutine());
     }
 
-    void SpawnObject()
+    IEnumerator SpawnPoliceCarRoutine()
     {
-        // Rastgele bir x pozisyonu seç
-        float randomX = Random.Range(minX, maxX);
+        while (true)
+        {
+            yield return new WaitForSeconds(timer); // Her 3 saniyede bir döngüyü çalıştır
 
-        // Oluşturulacak nesneyi instantiate et ve rastgele konumunu belirle
-        Vector3 spawnPosition = new Vector3(randomX, this.transform.position.y, this.transform.position.z);
-        GameObject spawnedObject = Instantiate(objectToSpawn, spawnPosition, Quaternion.identity);
+            int randomIndex = Random.Range(0, gameObjects.Length); // Game objelerinden rastgele birini seç
+            GameObject selectedObject = gameObjects[randomIndex];
+
+            Vector3 aposition = new Vector3(selectedObject.transform.position.x, -0.04f, 384);
+
+            // Seçilen objenin pozisyonunda polis arabası spawnla
+            Instantiate(policeCarPrefab, aposition, Quaternion.identity);
+
+            Debug.Log(selectedObject);
+        }
     }
 }

@@ -18,7 +18,7 @@ public class RoadSpawner : MonoBehaviour
             elapsedTime = 0f;
         }
     }
-
+    
     void SpawnObject()
     {
         int randomIndex = Random.Range(0, objectList.Count);
@@ -26,8 +26,5 @@ public class RoadSpawner : MonoBehaviour
         // Oluşturulacak nesneyi instantiate et ve rastgele konumunu belirle
         Vector3 spawnPosition = new Vector3(1, this.transform.position.y, this.transform.position.z);
         GameObject spawnedObject = Instantiate(objectList[randomIndex], spawnPosition, Quaternion.identity);
-
-        // Oluşturulan nesneyi bu script'e bağlı olan GameObject altında organize et
-        spawnedObject.transform.parent = transform;
     }
 }
