@@ -4,23 +4,72 @@ using UnityEngine;
 
 public class CameraFlow : MonoBehaviour
 {
-    public Transform target;  // The target object to follow (araba)
-    public float smoothSpeed = 0.125f;  // Smoothing factor for the camera movement
-    public float yOffset = 2f;  // Yükseklik offset'i
+    public GameObject Camera;
+    public Transform startPoint; // Başlangıç konumu
+    public Transform endPoint;   // Bitiş konumu
+    float speed = 100;     // Hareket hızı
 
-    void LateUpdate()
+    private bool isMoving = false;
+    private float journeyLength;
+    private float startTime;
+
+    void Start()
     {
-        if (target != null)
+        // İki nokta arasındaki mesafeyi hesapla
+        journeyLength = Vector3.Distance(startPoint.position, endPoint.position);
+    }
+    bool a;
+    void Update()
+    {
+        if (isMoving)
         {
-            float desiredX = target.position.x;
-            float desiredY = target.position.y + yOffset;
-            float desiredZ = transform.position.z;
+            // İki nokta arasındaki geçen süreyi hesapla
+            float distCovered = (Time.time - startTime) * speed;
 
-            Vector3 desiredPosition = new Vector3(desiredX, 2.240944f, -11.71272f);
-            Vector3 smoothedPosition = Vector3.Lerp(transform.position, desiredPosition, smoothSpeed);
-            transform.position = smoothedPosition;
+            // Yüzde olarak şu anki konumu bul
+            float fracJourney = distCovered / journeyLength;
 
-            transform.LookAt(target.position);  // Make the camera always look at the target
+            // İki nokta arasında lerp kullanarak hareket ettir
+            Camera.transform.position = Vector3.Lerp(startPoint.position, endPoint.position, fracJourney);
+
+            // Bitiş noktasına ulaştıysak dur
+            if (fracJourney >= 1.0f)
+            {
+                isMoving = false;
+            }
         }
+        if (a)
+        {
+            // İki nokta arasındaki geçen süreyi hesapla
+            float distCovered = (Time.time - startTime) * speed;
+
+            // Yüzde olarak şu anki konumu bul
+            float fracJourney = distCovered / journeyLength;
+
+            // İki nokta arasında lerp kullanarak hareket ettir
+            Camera.transform.position = Vector3.Lerp(Camera.transform.position, startPoint.position, fracJourney);
+
+            // Bitiş noktasına ulaştıysak dur
+            if (fracJourney >= 1.0f)
+            {
+                a = false;
+            }
+        }
+
+    }
+
+    public void StartMoving()
+    {
+        // Butona basıldığında hareketi başlat
+        startTime = Time.time;
+        isMoving = true;
+    }
+
+
+    public void BackMoving()
+    {
+        // Butona basıldığında hareketi başlat
+        startTime = Time.time;
+        a = true;
     }
 }

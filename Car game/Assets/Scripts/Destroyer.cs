@@ -7,7 +7,8 @@ public class Destroyer : MonoBehaviour
 {
     public TextMeshProUGUI currentScoreText;
     public TextMeshProUGUI bestScoreText;
-    public int scoreToUnlockNextScene = 72; // Skorun ulaşması gereken eşik değeri
+    public int scoreToUnlockNextScene  = 100; // Skorun ulaşması gereken eşik değeri
+    public int scoreToUnlockNextScene2 = 150;
     int currentScore;
 
     void Start()
@@ -49,6 +50,14 @@ public class Destroyer : MonoBehaviour
         if (currentScore >= scoreToUnlockNextScene)
         {
             PlayerPrefs.SetInt("IsSecondSceneUnlocked", 1); // İkinci sahnenin kilidini aç
+        }
+    }
+
+    void UnlockNextSceneIfScoreReached2()
+    {
+        if (currentScore >= scoreToUnlockNextScene2)
+        {
+            PlayerPrefs.SetInt("IsSecondSceneUnlocked2", 1); // İkinci sahnenin kilidini aç
         }
     }
 }
